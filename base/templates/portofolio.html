@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Portofolio{% endblock title %} 
+{% block content %}
+<div class="container mt-5">
+  <div class="mb-5">
+    <h1 class="text-center h-1">Portofolio</h1>
+  </div>
+  <div class="mb-3 mt-2">
+    {% for portofolio in portofolios %}
+    <div>
+      <h2>{{portofolio.name}}</h2>
+      <p>{{portofolio.created_at}}</p>
+      <br>
+      <p>{{portofolio.description}}</p>
+      <div class="text-center">
+        <img height=600 width=600 src="{{ portofolio.photo.url }}" class="img-fluid" alt="{{ portofolio.name }}">
+      </div>
+      <hr>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}
+
