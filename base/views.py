@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.db.models import Q
 from django.contrib import messages
 from .models import Price, Portofolio_Item, Question
 from .forms import QuestionForm
@@ -13,7 +14,14 @@ def contact(request):
     return render(request, 'contact.html')
 
 def faq(request):
-    question = Question.objects.all()
+    q = request.GET.get('q') if request.GET.get('q') != None else ''
+    question = Question.objects.filter(
+        Q(subject__icontains=q) |
+        Q(name__icontains=q) |
+        Q(description__icontains=q) 
+        
+    )
+    # question = Question.objects.all()
     context = {
         'questions': question
     }

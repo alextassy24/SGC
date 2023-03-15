@@ -5,21 +5,34 @@
   <div class="mb-5">
     <h1 class="text-center">FAQ</h1>
   </div>
-  <div class="text-center">
-     Adress your question <a href="{% url 'faq-form' %}">here</a>!
-  </div>
-  <div class="mb-3 mt-2">
+
+  <div class="d-flex justify-content-center align-items-center">
+    <div class="faq-question-form">
+      <form method="GET" action="{%url 'faq'%}">
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Search for question here...</label>
+          <input type="text" name="q" class="form-control" id="exampleFormControlInput1" placeholder="e.g. Wrapping price?"/>
+        </div>
+        </label>
+      </form>
+    </div>
+
+    <div class="text-center">
+      <p>Didn't find what were you looking for?</p>
+      <a href="{% url 'faq-form' %}" class="btn btn-info"> Adress your question here</a>
+    </div>
+ </div>
+
+  <div class=" mb-3 mt-2">
     {% for question in questions %}
         {% if question.answer != None %}
-            <div>
-            <h2>{{question.subject}}</h2>
-            <p>{{question.name}}, {{question.created_at}}</p>
-            <br>
-            <p>{{question.description}}</p>
-            <p>{{question.answer}}</p>
-            <p>Answered by {{question.answered_by}}</p>     
+            <div class="faq-question-body">
+              <h2>{{question.subject}}</h2>
+              <p>by {{question.name}}, at {{question.created_at}}</p>
+              <p class="faq-question">{{question.description}}</p>
+              <p class="faq-answer">{{question.answer}}</p>
+              <p class="text-end">Answered by <span class="fw-bold">{{question.answered_by}}</span></p>     
             </div>
-            <hr>
         {% endif %}
     {% endfor %}
   </div>
