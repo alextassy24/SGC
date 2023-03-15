@@ -40,4 +40,7 @@ class Question(models.Model):
         ordering = ['-updated_at','-created_at']
     
     def __str__(self):
-        return self.subject[0:30]
+        if self.answer is not None:
+            return str("Answered: "+self.subject[0:30])
+        return str("New: "+self.subject[0:30])
+     

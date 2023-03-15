@@ -8,15 +8,14 @@
   </div>
   <div class="mb-3 mt-2">
     {% for portofolio in portofolios %}
-    <div>
+    <div class="portofolio-item">
       <h2>{{portofolio.name}}</h2>
       <p>{{portofolio.created_at}}</p>
       <br>
       <p>{{portofolio.description}}</p>
       <div class="text-center">
-        <img height=600 width=600 src="{{ portofolio.photo.url }}" class="img-fluid" alt="{{ portofolio.name }}">
+        <img height=400 width=400 src="{{ portofolio.photo.url }}" class="img-fluid" alt="{{ portofolio.name }}">
       </div>
-      <hr>
     </div>
     {% endfor %}
   </div>

@@ -1,0 +1,33 @@
+{% load static %}
+<footer class="bg-primary text-light py-3 mt-5">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+        <p>SGC Design SRL</p>
+        <p>Strada Tache Ionescu 4, București</p>
+        <p>ORAR LUCRU: Luni - Vineri: 9.00 - 17.00</p>
+        <p>TEL: <a class="nav-link" href="tel:072-545-1545">+40 725 451 545</a></p>
+      </div>
+
+      <div class="col-md-6 text-md-end d-flex flex-column">
+          <p><a class="nav-link" href="{% url 'about' %}">About us</a></p>
+          <p><a class="nav-link" href="{% url 'contact' %}">Contact</a></p>
+          <p><a class="nav-link" href="{% url 'faq' %}">FAQ</a></p>
+      </div>
+
+      <div class="d-flex flex-column align-items-center justify-content-center">
+        <div>
+            <p class="fw-bold">You can find us here:</p>
+        </div>
+        <div class="social text-center d-flex justify-content-center gap-3">
+            <a href="https://www.instagram.com/sgc_design/"><img class="rounded-circle" src="{% static 'images/instagram.png' %}" alt=""></a>
+            <a href="https://www.facebook.com/gabi.sirbu29"><img class="rounded-circle" src="{% static 'images/facebook.png' %}" alt=""></a>
+            <a href="#"><img class="rounded-circle" src="{% static 'images/wapp.png' %}" alt=""></a>
+            <a href="https://www.tiktok.com/@sxgxc?_t=8afqFyUhyQ2&_r=1"><img class="rounded-circle" src="{% static 'images/tiktok.png' %}" alt=""></a> 
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
