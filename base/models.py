@@ -1,7 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
-class Prices(models.Model):
+class Price(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True,blank=True)
     price = models.IntegerField(null=True)
@@ -14,7 +14,7 @@ class Prices(models.Model):
     def __str__(self):
         return self.name
     
-class Portofolio(models.Model):
+class Portofolio_Item(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(null=True,blank=True)
     photo = models.ImageField(null=True)
@@ -26,3 +26,18 @@ class Portofolio(models.Model):
     
     def __str__(self):
         return self.name
+    
+class Question(models.Model):
+    subject = models.CharField(max_length=200, unique=True)
+    name = models.CharField(max_length=200)
+    description = models.TextField(null=True,blank=True)
+    answer = models.TextField(null=True,blank=True)
+    answered_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-updated_at','-created_at']
+    
+    def __str__(self):
+        return self.subject[0:30]

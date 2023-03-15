@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+{% block title %}About us{% endblock title %}{% block content %}
+<div class="container mt-5">
+  <div class="mb-5">
+    <h1 class="text-center">FAQ</h1>
+  </div>
+  <div class="text-center">
+     Adress your question <a href="{% url 'faq-form' %}">here</a>!
+  </div>
+  <div class="mb-3 mt-2">
+    {% for question in questions %}
+        {% if question.answer != None %}
+            <div>
+            <h2>{{question.subject}}</h2>
+            <p>{{question.name}}, {{question.created_at}}</p>
+            <br>
+            <p>{{question.description}}</p>
+            <p>{{question.answer}}</p>
+            <p>Answered by {{question.answered_by}}</p>     
+            </div>
+            <hr>
+        {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

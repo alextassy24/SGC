@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+{% block title %}About us{% endblock title %}{% block content %}
+<div class="container mt-5">
+  <div class="mb-5">
+    <h1 class="text-center">FAQ</h1>
+  </div>
+  <div class="form mb-2">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

@@ -1,10 +1,10 @@
 {% extends 'main.html' %}{% block title %}Servicii{% endblock title %} {% block content %}
 <div class="container mt-5">
-  <h1 class="text-center">{{product.name}}</h1>
-  <p>{{product.description}}</p>
+  <h1 class="text-center mb-5">{{product.name}}</h1>
+  <p class="mb-5">{{product.description}}</p>
   <div class="d-flex justify-content-between">
-    <p>Price:</p>
-    <p>{{product.price}} RON</p>
+    <p class="fw-bold fs-2">Price:</p>
+    <p class="fw-bold fs-2">{{product.price}} RON</p>
   </div>
 </div>
 {% endblock content %}

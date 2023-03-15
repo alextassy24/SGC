@@ -19,7 +19,18 @@
 		></script>
 		<title>{% block title %}{% endblock title %}</title>
 	</head>
-	<body class="">
-		{% include 'navbar.html' %} {% block content %} {% endblock content %}
+	<body>
+		<div class="main">
+			{% include 'navbar.html' %} 
+			{% if messages %}
+				<div class="alert alert-success alert-dismissible d-flex justify-content-between mt-3" role="alert">
+					{% for message in messages %}
+					{{ message }}
+					{% endfor %}
+					<button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="alert"></button>
+				</div>
+			{% endif %}
+			{% block content %} {% endblock content %}
+		</div>
 	</body>
 </html>
