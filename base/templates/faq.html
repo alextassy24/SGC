@@ -25,10 +25,10 @@
 
   </div>
 
-  <div class="w-100 mb-3">
+  <div class="w-100 ">
     {% for question in questions %}
         {% if question.answer != None %}
-            <div class="faq-question-body">
+            <div class="faq-question-body mb-5">
               <h2>{{question.subject}}</h2>
               <p>by {{question.name}}, at {{question.created_at}}</p>
               <p class="faq-question">{{question.description}}</p>

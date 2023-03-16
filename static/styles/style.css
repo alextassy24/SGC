@@ -23,7 +23,7 @@
 	padding: 2%;
 	border-radius: 10px;
 	background-color: #d6e4e9;
-	width: 60%;
+	width: 70%;
 }
 .faq-question {
 	box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 1);
@@ -47,9 +47,18 @@
 	padding: 5%;
 	border-radius: 10px;
 	background-color: #d6e4e9;
+	min-width: 400px;
 }
 
 .social img {
 	width: 40px;
 	height: 40px;
+}
+@media (max-width: 1899px) {
+	.faq-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
 }

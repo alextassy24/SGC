@@ -9,6 +9,7 @@ pillow = "*"
 django-cors-headers = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
+django-jazzmin = "*"
 
 [dev-packages]
 
