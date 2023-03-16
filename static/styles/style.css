@@ -2,9 +2,14 @@
 	background-color: #eee;
 }
 
+.faq-container {
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
 .faq-question-body,
-.form,
-.portofolio-item {
+.portofolio-item,
+.photo-container {
 	box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 1);
 	margin: 2%;
 	padding: 2%;
@@ -12,6 +17,14 @@
 	background-color: #d6e4e9;
 }
 
+.form {
+	box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 1);
+	margin: 0 auto;
+	padding: 2%;
+	border-radius: 10px;
+	background-color: #d6e4e9;
+	width: 60%;
+}
 .faq-question {
 	box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 1);
 	margin: 2%;
@@ -29,10 +42,9 @@
 }
 
 .faq-question-form {
-	width: 45%;
 	box-shadow: 0px 4px 12px -4px rgba(0, 0, 0, 1);
-	margin: 2%;
-	padding: 2%;
+	margin: 10%;
+	padding: 5%;
 	border-radius: 10px;
 	background-color: #d6e4e9;
 }

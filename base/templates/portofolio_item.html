@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}{{portofolio.name}}{% endblock title %} 
+{% block content %}
+<div class="container mt-5">
+  <h1 class="text-center mb-5">{{portofolio.name}}</h1>
+  <p class="mb-5">{{portofolio.description}}</p>
+  <div class="photo-container">
+    {% for photo in photos %}
+        {% if forloop.counter0|divisibleby:3 %}
+        <div class="row mb-5">
+        {% endif %}
+        <div class="col-md-4 d-flex justify-content-center align-items-center">
+        <div class="text-center">
+            <a href="{{ photo.photo.url }}" data-toggle="modal" data-target="#exampleModal">
+                <img height=300 width=300 src="{{ photo.photo.url }}" class="img-fluid" alt="{{ portofolio.name }}">
+            </a>
+        </div>
+        </div>
+        {% if forloop.counter|divisibleby:3 or forloop.last %}
+        </div>
+        {% endif %}
+    {% endfor %}
+   </div>
+</div>
+{% endblock content %}

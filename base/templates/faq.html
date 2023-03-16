@@ -1,16 +1,17 @@
 {% extends 'main.html' %}
 {% load crispy_forms_tags %}
 {% block title %}About us{% endblock title %}{% block content %}
-<div class="container mt-5">
-  <div class="mb-5">
-    <h1 class="text-center">FAQ</h1>
-  </div>
+<div class="mb-5 mt-3">
+  <h1 class="text-center">FAQ</h1>
+</div>
+<div class="faq-container d-flex justify-content-center align-items-start gap-5 mt-5">
 
-  <div class="d-flex justify-content-center align-items-center">
-    <div class="faq-question-form">
-      <form method="GET" action="{%url 'faq'%}">
+  <div class="d-flex flex-column justify-content-center align-items-center">
+
+    <div class="faq-question-form mb-3 w-100">
+      <form method="GET" action="{% url 'faq' %}">
         <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">Search for question here...</label>
+          <label for="exampleFormControlInput1" class="form-label">Search for questions here...</label>
           <input type="text" name="q" class="form-control" id="exampleFormControlInput1" placeholder="e.g. Wrapping price?"/>
         </div>
         </label>
@@ -21,9 +22,10 @@
       <p>Didn't find what you were looking for?</p>
       <a href="{% url 'faq-form' %}" class="btn btn-info"> Adress your question here</a>
     </div>
- </div>
 
-  <div class=" mb-3 mt-2">
+  </div>
+
+  <div class="w-100 mb-3">
     {% for question in questions %}
         {% if question.answer != None %}
             <div class="faq-question-body">

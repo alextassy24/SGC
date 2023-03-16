@@ -1,10 +1,25 @@
-{% extends 'main.html' %} {% block title %}About us{% endblock title %}{% block content %}
-<div class="container mt-5">
-  <div class="mb-5">
-    <h1 class="text-center">Contact</h1>
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Contact{% endblock title %}
+{% block content %}
+<div class="mb-5 mt-3 text-center">
+  <h1 class="text-center">Contact</h1>
+</div>
+<div class="container d-flex flex-row justify-content-center align-content-center mt-5">
+  <div>
+      <p>SGC Design SRL</p>
+      <p>Adress: Strada Tache Ionescu 4, București</p>
+      <p>Working schedule: Luni - Vineri: 9.00 - 17.00</p>
+      <p>Phone: <a href="tel:072-545-1545">+40 725 451 545</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/sgc_design/">SGC Design</a> </p>
+      <p>Facebook: <a href="https://www.facebook.com/gabi.sirbu29">Gabi Sirbu</a> </p>
   </div>
-  <div class="mb-2">
-
+  <div class="form mb-2">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form|crispy}}
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
   </div>
 </div>
 {% endblock content %}

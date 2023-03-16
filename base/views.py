@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.contrib import messages
-from .models import Price, Portofolio_Item, Question
-from .forms import QuestionForm
+from .models import Price, Portofolio_Item, Question, Portofolio_Photo
+from .forms import QuestionForm, MessageForm
 
 def home(request):
     return render(request, 'home.html')
@@ -60,3 +60,25 @@ def price_list(request):
         'prices': price_list
     }
     return render(request, 'price_list.html',context)
+
+def view_more(request, pk):
+    portofolio = Portofolio_Item.objects.get(id=pk)
+    photos = portofolio.photos.all()
+    context = {
+        'portofolio': portofolio,
+        'photos': photos
+    }
+    return render(request, 'portofolio_item.html', context)
+
+def contact(request):
+    form = MessageForm()
+    if request.method == "POST":
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            question = form.save(commit=False)
+            question.save()
+            messages.success(request, 'Your message has been sent!')
+            return redirect('home')
+        else:
+            messages.error(request, 'An error occurred!')
+    return render(request, 'contact.html', {'form':form})  
